@@ -19,6 +19,10 @@ git clone https://github.com/romysaputrasihananda/tiktok-comment-scrapper
 # Change Directory
 cd tiktok-comment-scrapper
 
+# Create Virtual Environment (Optional)
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
 # Install Requirement
 pip install -r requirements.txt
 ```
