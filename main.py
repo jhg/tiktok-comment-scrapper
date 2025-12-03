@@ -43,25 +43,31 @@ def main(
         aweme_id=aweme_id
     )
 
-    if not (
-        os.path.exists(
-            dir := os.path.dirname(output)
-        )
-    ):
-        os.makedirs(dir)
+    # ------------------------------
+    # FIX 1: Normalizar ruta
+    # ------------------------------
+    output_dir = output.rstrip("/\\")  # quitar barras finales
 
-    json.dump(
-        comments.dict,
-        open(
-            (final_path := '%s%s.json' % (output, aweme_id)),
-            'w'
-        ),
-        ensure_ascii=False
-    )
+    # si quedó vacío, usar el nombre base
+    if output_dir == "":
+        output_dir = "data"
 
-    logger.info(
-        'save comments %s on %s' % (aweme_id, final_path)
-    )
+    # crear directorio si no existe
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir, exist_ok=True)
+
+    # ------------------------------
+    # FIX 2: Crear path final JSON
+    # ------------------------------
+    final_path = os.path.join(output_dir, f"{aweme_id}.json")
+
+    # ------------------------------
+    # FIX 3: Guardar en UTF-8 sin errores
+    # ------------------------------
+    with open(final_path, 'w', encoding='utf-8') as f:
+        json.dump(comments.dict, f, ensure_ascii=False)
+
+    logger.info('save comments %s on %s' % (aweme_id, final_path))
 
 
 if(__name__ == '__main__'):
