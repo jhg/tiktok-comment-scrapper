@@ -30,16 +30,16 @@ pip install -r requirements.txt
 ## Example Usages
 
 ```sh
-python main.py --url=7170139292767882522 --size=10 --output=data
+python main.py --aweme_id=7170139292767882522 --size=10 --output=data
 ```
 
 ### Flags
 
-| Flag     | Alias |           Description           | Example         |       Default       |
-| :------- | :---: | :-----------------------------: | :-------------- | :-----------------: |
-| --url    |  -u   | Url or video id of tiktok video | --url=id or url | 7170139292767882522 |
-| --size   |  -s   |       number of comments        | --size=10       |         50          |
-| --output |  -o   |      json file output path      | --output=data   |        data         |
+| Flag        | Alias |           Description           | Example              |       Default       |
+| :---------- | :---: | :-----------------------------: | :------------------- | :-----------------: |
+| --aweme_id  |       | Url or video id of tiktok video | --aweme_id=id or url | 7170139292767882522 |
+| --size      |  -s   |       number of comments        | --size=10            |         50          |
+| --output    |  -o   |      json file output path      | --output=data        |        data         |
 
 ## Sample Output
 
