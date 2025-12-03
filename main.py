@@ -63,7 +63,7 @@ def main(
     # FIX 3: Guardar en UTF-8 sin errores
     # ------------------------------
     with open(final_path, 'w', encoding='utf-8') as f:
-        json.dump(comments.dict, f, ensure_ascii=False)
+        json.dump(comments.dict, f, ensure_ascii=False, indent=4)
 
     logger.info('save comments %s on %s' % (aweme_id, final_path))
 
