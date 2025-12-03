@@ -21,7 +21,7 @@ __version__ = '2.0.0'
 @click.option(
     "--aweme_id",
     help='id video tiktok',
-    callback=lambda _, __, value: match.group(0) if(match := re.match(r"^\d+$", value)) else None
+    callback=lambda _, __, value: match.group(0) if (match := re.match(r"^\d+$", value)) else None
 )
 @click.option(
     "--output",
@@ -31,13 +31,11 @@ __version__ = '2.0.0'
 def main(
     aweme_id: str,
     output: str
-): 
-    if(not aweme_id):
-        raise ValueError('example id : 7418294751977327878')      
-    
-    logger.info(
-        'start scrap comments %s' % aweme_id
-    )
+):
+    if not aweme_id:
+        raise ValueError('example id : 7418294751977327878')
+
+    logger.info('start scrap comments %s' % aweme_id)
 
     comments: Comments = TiktokComment()(
         aweme_id=aweme_id
@@ -70,5 +68,5 @@ def main(
     logger.info('save comments %s on %s' % (aweme_id, final_path))
 
 
-if(__name__ == '__main__'):
+if __name__ == '__main__':
     main()
